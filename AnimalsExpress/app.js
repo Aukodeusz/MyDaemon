@@ -1,8 +1,12 @@
+// Importowanie wymaganych modułów
 const express = require('express');
 const app = express();
 const AnimalsController = require('./controllers/AnimalsController');
 
+// Middleware ustawiający aplikację do parsowania JSON
 app.use(express.json());
+
+// Ustawienie tras dla endpointu /animals
 app.use('/animals', AnimalsController);
 
 // Trasa dla root "/"
@@ -20,9 +24,5 @@ app.get('/', (req, res) => {
   `);
 });
 
-const port = 3001;
-app.listen(port, () => {
-  console.log(`AnimalsExpress API running on http://localhost:${port}`);
-});
-
+// Eksportowanie aplikacji dla innych modułów, np. bin/www
 module.exports = app;

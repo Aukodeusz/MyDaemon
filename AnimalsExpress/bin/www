@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 
-const app = require('../app');
-const debug = require('debug')('AnimalsExpress:server');
-const http = require('http');
+const app = require('../app'); // Importuje aplikację z app.js
+const debug = require('debug')('AnimalsExpress:server'); // Importuje moduł debug
+const http = require('http'); // Importuje moduł HTTP
 
-const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+const port = normalizePort(process.env.PORT || '3100'); // Ustawia port, na którym serwer będzie działać
+app.set('port', port); // Ustawia port dla aplikacji
 
-const server = http.createServer(app);
+const server = http.createServer(app); // Tworzy serwer HTTP
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.listen(port); // Serwer nasłuchuje na ustawionym porcie
+server.on('error', onError); // Dodaje listener dla błędów serwera
+server.on('listening', onListening); // Dodaje listener dla zdarzenia "listening"
 
 function normalizePort(val) {
   const port = parseInt(val, 10);
-  if (isNaN(port)) return val;
-  if (port >= 0) return port;
+  if (isNaN(port)) return val; // Nazwana rura
+  if (port >= 0) return port; // Numer portu
   return false;
 }
 
