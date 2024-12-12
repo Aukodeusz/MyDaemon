@@ -3,7 +3,8 @@ const path = require('path');
 const dataFilePath = path.join(__dirname, '../data/zoo.json');
 
 async function readData() {
-    return JSON.parse(await fs.readFile(dataFilePath, 'utf-8'));
+    const data = await fs.readFile(dataFilePath, 'utf-8');
+    return JSON.parse(data);
 }
 
 async function writeData(data) {
